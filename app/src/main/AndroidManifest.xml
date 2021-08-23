@@ -2,13 +2,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.projectandroid">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+<!--        android:name=".Demo03_Foreground_Notification.MyApplication"-->
     <application
+        android:name=".Demo04_Foreground_Media_Control.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectAndroid">
+        <activity android:name=".Demo04_Foreground_Media_Control.Main_Demo_Foreground_Control"></activity>
+        <activity android:name=".Demo03_Foreground_Notification.Main_Demo_Foreground_Notification" />
+        <activity android:name=".Demo02_startService.Main_Demo_startService_01" />
+        <activity android:name=".Demo01_bindService.Main_Demo_bindService_01" />
+
+        <service android:name=".Demo01_bindService.LocalService" />
+        <service android:name=".Demo02_startService.MyService" />
+        <service android:name=".Demo03_Foreground_Notification.MyService" />
+        <service android:name=".Demo04_Foreground_Media_Control.MyService" />
+        <receiver android:name=".Demo04_Foreground_Media_Control.MyReceiver"/>
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
