@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:background="@color/green"
+    android:padding="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/img_custom_notification"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/headphones_red"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/img_custom_notification"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:layout_toStartOf="@+id/tv_time_custom_notification">
+
+        <TextView
+            android:id="@+id/tv_title_custom_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="thong20 - title notification"
+            style="@style/TextAppearance.Compat.Notification.Title"
+            />
+
+        <TextView
+            android:id="@+id/tv_message_custom_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="thong20 - content notification"
+            style="@style/TextAppearance.Compat.Notification.Info"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_time_custom_notification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17:25"
+        style="@style/TextAppearance.Compat.Notification.Info"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        />
+
+</RelativeLayout>

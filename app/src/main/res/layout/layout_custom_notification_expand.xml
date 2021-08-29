@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="256dp"
+    android:background="@color/yellow"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_title_custom_notification_expanded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="thong20 - title notification"
+        style="@style/TextAppearance.Compat.Notification.Title"
+        />
+
+    <TextView
+        android:id="@+id/tv_message_custom_notification_expanded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="thong20 - content notification"
+        style="@style/TextAppearance.Compat.Notification.Info"
+        />
+
+    <ImageView
+        android:id="@+id/img_custom_notification_expanded"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>
