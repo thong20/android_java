@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo04_Foreground_Media_Control;
+package com.example.demo_service.Demo06;
 
 import android.app.Application;
 import android.app.NotificationChannel;
@@ -26,7 +26,7 @@ public class MyApplication extends Application {
                     "Channel Service Example",
                     NotificationManager.IMPORTANCE_DEFAULT // Độ ưu tiên: số càng lớn độ ưu tiên càng cao
             );
-            // Tăng âm thanh thông báo của Notification cho Android 8+
+            // Set âm thanh thông báo của Notification cho Android 8+
             channel.setSound(null, null);
 
 

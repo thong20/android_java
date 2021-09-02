@@ -1,6 +1,4 @@
-package com.example.projectandroid.Demo04_Foreground_Media_Control;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.demo_service.Demo03_Foreground_Notification;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,13 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.projectandroid.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * Link: https://youtu.be/uZsCuGte_eY
- */
+import com.example.demo_service.R;
 
-public class Main_Demo_Foreground_Control extends AppCompatActivity {
+public class Main_Demo_Foreground_Notification extends AppCompatActivity {
     EditText edtDataIntent;
     Button btnStartService, btnStopService;
 
@@ -22,7 +18,7 @@ public class Main_Demo_Foreground_Control extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_demo_foreground_control);
+        setContentView(R.layout.activity_main_demo_foreground_notification);
 
         edtDataIntent = findViewById(R.id.et_data_intent);
         btnStartService = findViewById(R.id.btn_start_service);
@@ -34,25 +30,20 @@ public class Main_Demo_Foreground_Control extends AppCompatActivity {
                 clickStartService();
             }
         });
-
+        
         btnStopService.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clickStopService();
             }
         });
-
+        
     }
 
 
     private void clickStartService() {
-        Song song = new Song("Big city boy", "Tincoder", R.drawable.image_song, R.raw.somewhere_somehow);
-
         Intent intent = new Intent(this, MyService.class);
-        // Sử dụng Bundle để gửi lên Push Notification
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object_song", song);
-        intent.putExtras(bundle);
+        intent.putExtra("key_data_intent", edtDataIntent.getText().toString().trim());
 
         // chạy ForegroundService
         startService(intent);

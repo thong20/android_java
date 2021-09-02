@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo04_Foreground_Media_Control;
+package com.example.demo_service.Demo06;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,12 +7,13 @@ import android.content.Intent;
 public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
-        // get data từ intent của method ".getPendingIntent()" của class "MyService.java"
+        // get data từ Notification qua intent của method ".getPendingIntent()" trong class "MyService.java"
+        //
         int actionMusic = intent.getIntExtra("action_music", 0);
 
-        Intent intentService = new Intent(context, MyReceiver.class);
+        // Truyền lại cho class Service
+        Intent intentService = new Intent(context, MyService.class);
         intentService.putExtra("action_music_service", actionMusic);
-
         context.startService(intentService);
     }
 }

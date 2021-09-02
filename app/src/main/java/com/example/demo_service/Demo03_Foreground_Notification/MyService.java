@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo03_Foreground_Notification;
+package com.example.demo_service.Demo03_Foreground_Notification;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -11,9 +11,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
-import com.example.projectandroid.R;
+import com.example.demo_service.R;
 
-import static com.example.projectandroid.Demo03_Foreground_Notification.MyApplication.CHANNEL_ID;
 
 public class MyService extends Service {
 
@@ -59,7 +58,7 @@ public class MyService extends Service {
                 intent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+        Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID)
                 .setContentTitle("This is Title / MyService.java - line: 64")
                 .setContentText(strDataIntent)
                 .setSmallIcon(R.drawable.ic_notification)

@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo01_bindService;
+package com.example.demo_service.Demo01_bindService;
 
 import android.app.Service;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo03_Foreground_Notification;
+package com.example.demo_service.Demo03_Foreground_Notification;
 
 import android.app.Application;
 import android.app.NotificationChannel;

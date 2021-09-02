@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo04_Foreground_Media_Control;
+package com.example.demo_service.Demo05_Foreground_Media_Control;
 
 import java.io.Serializable;
 

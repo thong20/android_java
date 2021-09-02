@@ -1,79 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical">
 
-    <TextView
+    >
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Demo Service"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Demo startService() method"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
-    <Button
-        android:id="@+id/btn_01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"
-        />
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Demo bindService() method"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
-    <Button
-        android:id="@+id/btn_02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Demo Service"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Demo Foreground Notification"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
-    <Button
-        android:id="@+id/btn_03"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="startService() method"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="20dp"/>
+        <Button
+            android:id="@+id/btn_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="5dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Demo ForegroundService Media Control"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="20dp"/>
-    <Button
-        android:id="@+id/btn_04"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Demo"
-        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="bindService() method"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/btn_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="5dp"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Foreground &amp; Notification"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/btn_03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="5dp"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="#05 - Foreground &amp; Media Control"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/btn_05"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="#06 - Activity &amp; Foreground &amp; BroadcastReceiver"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:gravity="center_horizontal"/>
+        <Button
+            android:id="@+id/btn_06"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo"
+            />
+        <View
+            android:layout_width="200dp"
+            android:layout_height="1dp"
+            android:background="@color/red"
+            android:layout_marginVertical="5dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

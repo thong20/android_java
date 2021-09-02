@@ -1,6 +1,4 @@
-package com.example.projectandroid.Demo01_bindService;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.demo_service.Demo01_bindService;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -13,7 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.projectandroid.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.demo_service.R;
 
 public class Main_Demo_bindService_01 extends AppCompatActivity {
     Button button, button_unbind, button_rebind;

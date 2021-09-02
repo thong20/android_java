@@ -1,4 +1,4 @@
-package com.example.projectandroid.Demo04_Foreground_Media_Control;
+package com.example.demo_service.Demo06;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -10,22 +10,24 @@ import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.example.projectandroid.R;
-
-import static com.example.projectandroid.Demo04_Foreground_Media_Control.MyApplication.CHANNEL_ID;
+import com.example.demo_service.R;
 
 public class MyService extends Service {
 
-    private static final int ACTION_PAUSE = 1;
-    private static final int ACTION_RESUME = 2;
-    private static final int ACTION_CLEAR = 3;
+    public static final int ACTION_PAUSE = 1;
+    public static final int ACTION_RESUME = 2;
+    public static final int ACTION_CLEAR = 3;
+    public static final int ACTION_START = 4;
+
+    public static final String SEND_DATA_TO_ACTIVITY = "send_data_to_activity";
+
+
 
     private MediaPlayer mediaPlayer;
     private boolean isPlaying;
@@ -36,7 +38,6 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        Logdln("onCreate()", 17);
 
 
     }
@@ -78,6 +79,9 @@ public class MyService extends Service {
 
         mediaPlayer.start();
         isPlaying = true;
+
+        // Gửi action tới Activity
+        sendActionToActivity(ACTION_START);
     }
 
     private void handleActionMusic(int action){
@@ -90,6 +94,9 @@ public class MyService extends Service {
                 break;
             case ACTION_CLEAR:
                 stopSelf();
+
+                // Gửi action tới Activity
+                sendActionToActivity(ACTION_CLEAR);
                 break;
         }
     }
@@ -100,6 +107,8 @@ public class MyService extends Service {
             isPlaying = true;
             sendNotification(mSong);
 
+            // Gửi action tới Activity
+            sendActionToActivity(ACTION_RESUME);
         }
     }
 
@@ -108,6 +117,9 @@ public class MyService extends Service {
             mediaPlayer.pause();
             isPlaying = false;
             sendNotification(mSong);
+
+            // Gửi action tới Activity
+            sendActionToActivity(ACTION_PAUSE);
         }
     }
 
@@ -124,7 +136,9 @@ public class MyService extends Service {
     }
 
     private void sendNotification(Song song) {
-        Intent intent = new Intent(this, Main_Demo_Foreground_Control.class);
+        Intent intent = new Intent(this, Main_Demo06.class);
+        // Định nghĩa hành động khi click lên Notification,
+        // là mở activity "Main_Demo_Foreground_Control.java"
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 this,
                 0,
@@ -133,9 +147,10 @@ public class MyService extends Service {
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), song.getImage());
 
+        // RemoteViews: dùng để inflate layout custom
         RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.custom_notification);
         remoteViews.setTextViewText(R.id.tv_title_song, song.getTitle());
-        remoteViews.setTextViewText(R.id.tv_singer, song.getSinger());
+        remoteViews.setTextViewText(R.id.tv_singer_song, song.getSinger());
         remoteViews.setImageViewBitmap(R.id.img_song, bitmap);
         remoteViews.setImageViewResource(R.id.img_play_or_pause, R.drawable.ic_pause);
 
@@ -149,7 +164,9 @@ public class MyService extends Service {
 
         remoteViews.setOnClickPendingIntent(R.id.img_clear, getPendingIntent(this, ACTION_CLEAR));
 
-        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+        Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID)
+                // Vì ta đã set layout ở RemoteViews rồi nên
+                // ta không cần sử dụng các method: .setContentTitle() / .setContentText()
                 .setSmallIcon(R.drawable.ic_notification)
                 .setContentIntent(pendingIntent) // tạo hành động khi click lên Notification:
                                                  // Khi click lên, sẽ chuyển tới activity
@@ -174,20 +191,18 @@ public class MyService extends Service {
         return PendingIntent.getBroadcast(context.getApplicationContext(), action, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
-    // =========================================================
-    public static void LogdStatic(String str){
-        Log.d("Log.d", "=== MyService.java ==============================\n" + str);
-    }
-    public static void LogdlnStatic(String str, int n){
-        Log.d("Log.d", "=== MyService.java - line: " + n + " ==============================\n" + str);
-    }
-    public void Logd(String str){
-        Log.d("Log.d", "=== MyService.java ==============================\n" + str);
-    }
-    public void Logdln(String str, int n){
-        Log.d("Log.d", "=== MyService.java - line: " + n + " ==============================\n" + str);
-    }
-    public void showToast(String str){
-      Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
+    // Dùng để gửi action sang MainActivity
+    private void sendActionToActivity(int action){
+        // Đóng gói dữ liệu và gửi
+        Intent intent = new Intent(SEND_DATA_TO_ACTIVITY);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object_song", mSong);
+        bundle.putBoolean("status_player", isPlaying);
+        bundle.putInt("action_music", action);
+        intent.putExtras(bundle);
+
+        // Sử dụng Broadcast để gửi Intent
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+
     }
 }

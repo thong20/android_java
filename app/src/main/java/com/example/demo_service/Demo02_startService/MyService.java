@@ -1,5 +1,4 @@
-package com.example.projectandroid.Demo02_startService;
-
+package com.example.demo_service.Demo02_startService;
 
 import android.app.Service;
 import android.content.Intent;
