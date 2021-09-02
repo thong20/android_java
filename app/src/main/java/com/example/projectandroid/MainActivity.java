@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_01, btn_02,
             btn_03, btn_04;
 
+// test remote
+    // thong20
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
