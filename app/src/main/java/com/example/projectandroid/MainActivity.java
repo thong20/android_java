@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btn_01, btn_02, btn_03, btn_04, btn_05,
             btn_06, btn_07, btn_08, btn_09, btn_10;
 
-    // thong20
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
