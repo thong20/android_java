@@ -1,4 +1,4 @@
-package com.example.demo_service.Demo06;
+package com.example.demo_service.Demo06_Foreground_BroadcastReceiver;
 
 import java.io.Serializable;
 

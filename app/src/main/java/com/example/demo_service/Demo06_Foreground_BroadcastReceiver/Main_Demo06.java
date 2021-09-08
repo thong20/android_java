@@ -1,4 +1,4 @@
-package com.example.demo_service.Demo06;
+package com.example.demo_service.Demo06_Foreground_BroadcastReceiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,7 +17,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.example.demo_service.R;
 
-import static com.example.demo_service.Demo06.MyService.SEND_DATA_TO_ACTIVITY;
+import static com.example.demo_service.Demo06_Foreground_BroadcastReceiver.MyService.SEND_DATA_TO_ACTIVITY;
 
 /**
  * Link: https://youtu.be/uZsCuGte_eY

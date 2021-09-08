@@ -1,4 +1,4 @@
-package com.example.demo_service.Demo06;
+package com.example.demo_service.Demo06_Foreground_BroadcastReceiver;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -27,8 +27,7 @@ public class MyService extends Service {
 
     public static final String SEND_DATA_TO_ACTIVITY = "send_data_to_activity";
 
-
-
+    // Khai báo trình phát nhạc trong Android
     private MediaPlayer mediaPlayer;
     private boolean isPlaying;
 
@@ -38,20 +37,18 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
 
-
-
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
 
-
         return null; // vì Demo này sử dụng Foreground nên ta return null
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // get bundle từ "MainActivity.java" gửi qua thông qua hàm startService()
         Bundle bundle = intent.getExtras();
         if(bundle != null){
             Song song = (Song) bundle.get("object_song");
@@ -171,6 +168,7 @@ public class MyService extends Service {
                 .setContentIntent(pendingIntent) // tạo hành động khi click lên Notification:
                                                  // Khi click lên, sẽ chuyển tới activity
                                                  // Main_Demo_ForegroundService bằng intent
+                // set layout custom_notification vào Notification
                 .setCustomContentView(remoteViews)
                 .setSound(null) // Tắt âm thanh Notification cho Android 8-
                                 // Tắt âm thanh Notification cho Android 8+

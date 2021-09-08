@@ -4,29 +4,48 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
-    <!--        android:name=".Demo03_Foreground_Notification.MyApplication"-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <application
-        android:name=".Demo05_Foreground_Media_Control.MyApplication"
+        android:name=".Demo11_Control_Music_with_Foreground_and_Bound_Service.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo_Service">
+        <activity android:name=".Demo13_Background_Service_with_JobScheduler.Main_Demo13"></activity>
+        <activity android:name=".Demo12_Background_Service_basic.Main_Demo12" />
+        <activity android:name=".Demo11_Control_Music_with_Foreground_and_Bound_Service.Main_Demo11" />
+        <activity android:name=".Demo10_Foreground_Bound_service.Main_Demo10" />
+        <activity android:name=".Demo09_BoundService_Messenger.Main_Demo09" />
+        <activity android:name=".Demo08_BoundService_Binder_class.Main_Demo08" />
         <activity android:name=".Demo01_bindService.Main_Demo_bindService_01" />
         <activity android:name=".Demo02_startService.Main_Demo_startService_01" />
         <activity android:name=".Demo03_Foreground_Notification.Main_Demo_Foreground_Notification" />
         <activity android:name=".Demo05_Foreground_Media_Control.Main_Demo05" />
-        <activity android:name=".Demo06.Main_Demo06" />
+        <activity android:name=".Demo06_Foreground_BroadcastReceiver.Main_Demo06" />
+        <activity android:name=".Demo07_Foreground_Notification_MediaStyle.Main_Demo07" />
 
         <service android:name=".Demo01_bindService.LocalService" />
         <service android:name=".Demo02_startService.MyService" />
-
         <service android:name=".Demo03_Foreground_Notification.MyService" />
         <service android:name=".Demo05_Foreground_Media_Control.MyService" />
-        <receiver android:name=".Demo05_Foreground_Media_Control.MyReceiver"/>
-        <service android:name=".Demo06.MyService" />
-        <receiver android:name=".Demo06.MyReceiver"/>
+        <service android:name=".Demo06_Foreground_BroadcastReceiver.MyService" />
+
+        <receiver android:name=".Demo06_Foreground_BroadcastReceiver.MyReceiver" />
+
+        <service android:name=".Demo07_Foreground_Notification_MediaStyle.MyService" />
+
+        <receiver android:name=".Demo07_Foreground_Notification_MediaStyle.MyReceiver" />
+
+        <service android:name=".Demo08_BoundService_Binder_class.MusicBoundService" />
+        <service android:name=".Demo09_BoundService_Messenger.MusicService" />
+        <service android:name=".Demo10_Foreground_Bound_service.MyService" />
+        <service android:name=".Demo11_Control_Music_with_Foreground_and_Bound_Service.MyService" />
+        <service android:name=".Demo12_Background_Service_basic.MyBackgroundService" />
+        <service android:name=".Demo13_Background_Service_with_JobScheduler.MyJobService"
+                 android:permission="android.permission.BIND_JOB_SERVICE"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>

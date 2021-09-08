@@ -5,31 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:padding="10dp"
-    >
+    android:gravity="center_horizontal">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Demo 5 - ForegroundService"
-        android:textSize="30sp"
-        android:textColor="@color/blue"
-        android:layout_marginBottom="20dp"/>
+        android:text="Demo 09 - Bound Service&#10;initial with Messenger"
+        android:textSize="24sp"
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/btn_start_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start Service"
+        android:text="Start Bound Service"
         android:layout_marginTop="20dp"/>
-
     <Button
         android:id="@+id/btn_stop_service"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Stop Service"
-        android:layout_marginTop="20dp"/>
+        android:text="Stop Bound Service"
+        android:layout_marginTop="10dp"/>
 
 </LinearLayout>

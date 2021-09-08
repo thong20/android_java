@@ -22,92 +22,38 @@ import com.example.demo_service.R;
 
 public class MyService extends Service {
 
-    private static final int ACTION_PAUSE = 1;
-    private static final int ACTION_RESUME = 2;
-    private static final int ACTION_CLEAR = 3;
-
+    // Khai báo trình phát nhạc trong Android
     private MediaPlayer mediaPlayer;
-    private boolean isPlaying;
-
-    Song mSong;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         Logdln("onCreate()", 17);
-
-
     }
 
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
 
-
         return null; // vì Demo này sử dụng Foreground nên ta return null
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        // get bundle từ "MainActivity.java" gửi qua thông qua hàm startService()
         Bundle bundle = intent.getExtras();
         if(bundle != null){
             Song song = (Song) bundle.get("object_song");
             if(song != null){
-                mSong = song;
                 startMusic(song);
 
                 sendNotification(song);
             }
         }
 
-        // get data từ intent trong hàm "onReceive()" của class "MyReceiver.java"
-        int actionMusic = intent.getIntExtra("action_music_service", 0);
-        handleActionMusic(actionMusic);
-
         return START_NOT_STICKY; // không cần chạy lại khi bi kill
                                  // không cần chạy lại khi hệ thống bắt buộc dừng
-    }
-
-    private void startMusic(Song song) {
-        if(mediaPlayer == null) {
-            // Khởi tạo
-            mediaPlayer = MediaPlayer.create(getApplicationContext(), song.getResource());
-        }
-
-        mediaPlayer.start();
-        isPlaying = true;
-    }
-
-    private void handleActionMusic(int action){
-        switch (action){
-            case ACTION_PAUSE:
-                pauseMusic();
-                break;
-            case ACTION_RESUME:
-                resumeMusic();
-                break;
-            case ACTION_CLEAR:
-                stopSelf();
-                break;
-        }
-    }
-
-    private void resumeMusic() {
-        if(mediaPlayer != null && !isPlaying){
-            mediaPlayer.start();
-            isPlaying = true;
-            sendNotification(mSong);
-
-        }
-    }
-
-    private void pauseMusic() {
-        if(mediaPlayer != null && isPlaying){
-            mediaPlayer.pause();
-            isPlaying = false;
-            sendNotification(mSong);
-        }
     }
 
     @Override
@@ -120,6 +66,15 @@ public class MyService extends Service {
             mediaPlayer = null;
         }
 
+    }
+
+    private void startMusic(Song song) {
+        if(mediaPlayer == null) {
+            // Khởi tạo
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), song.getResource());
+        }
+
+        mediaPlayer.start();
     }
 
     private void sendNotification(Song song) {
@@ -141,16 +96,6 @@ public class MyService extends Service {
         remoteViews.setImageViewBitmap(R.id.img_song, bitmap);
         remoteViews.setImageViewResource(R.id.img_play_or_pause, R.drawable.ic_pause);
 
-        if(isPlaying){
-            remoteViews.setOnClickPendingIntent(R.id.img_play_or_pause, getPendingIntent(this, ACTION_PAUSE));
-            remoteViews.setImageViewResource(R.id.img_play_or_pause, R.drawable.ic_pause);
-        }else {
-            remoteViews.setOnClickPendingIntent(R.id.img_play_or_pause, getPendingIntent(this, ACTION_RESUME));
-            remoteViews.setImageViewResource(R.id.img_play_or_pause, R.drawable.ic_play);
-        }
-
-        remoteViews.setOnClickPendingIntent(R.id.img_clear, getPendingIntent(this, ACTION_CLEAR));
-
         Notification notification = new NotificationCompat.Builder(this, MyApplication.CHANNEL_ID)
                 // Vì ta đã set layout ở RemoteViews rồi nên
                 // ta không cần sử dụng các method: .setContentTitle() / .setContentText()
@@ -158,6 +103,7 @@ public class MyService extends Service {
                 .setContentIntent(pendingIntent) // tạo hành động khi click lên Notification:
                                                  // Khi click lên, sẽ chuyển tới activity
                                                  // Main_Demo_ForegroundService bằng intent
+                // set layout custom_notification vào Notification
                 .setCustomContentView(remoteViews)
                 .setSound(null) // Tắt âm thanh Notification cho Android 8-
                                 // Tắt âm thanh Notification cho Android 8+
@@ -169,13 +115,6 @@ public class MyService extends Service {
         startForeground(1, notification);
         // Lưu ý, nếu không khởi chạy thì ứng dụng sẽ bị
         // kill sau khoảng thời gian hơn 1 phút
-    }
-
-    private PendingIntent getPendingIntent(Context context, int action){
-        Intent intent = new Intent(this, MyReceiver.class);
-        intent.putExtra("action_music", action);
-
-        return PendingIntent.getBroadcast(context.getApplicationContext(), action, intent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     // =========================================================

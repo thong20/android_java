@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ProjectAndroid</string>
+    <string name="app_name">Demo Service</string>
     <string name="note02">Chú ý: phải khai báo thẻ &lt;service&gt; với name trỏ tới LocalService trong AndroidManifest</string>
     <string name="note01">Chú ý: phải khai báo thẻ &lt;service&gt; với name trỏ tới MyService trong AndroidManifest</string>
 </resources>

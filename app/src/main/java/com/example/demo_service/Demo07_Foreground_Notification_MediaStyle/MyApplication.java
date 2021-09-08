@@ -1,4 +1,4 @@
-package com.example.demo_service.Demo06;
+package com.example.demo_service.Demo07_Foreground_Notification_MediaStyle;
 
 import android.app.Application;
 import android.app.NotificationChannel;
