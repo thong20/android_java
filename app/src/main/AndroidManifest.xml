@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.motionlayout">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MotionLayout"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Demo09_Two_Circle.Main_Demo09"
+            android:exported="true" />
+        <activity android:name=".Demo08_Scrolling_Image.Main_Demo08" />
+        <activity android:name=".Demo07_Positioning_Icons.Main_Demo07" />
+        <activity android:name=".Demo06_WindMill.Main_Demo06" />
+        <activity android:name=".Demo05_Album_Photo_with_RecyclerView.Main_Demo05" />
+        <activity android:name=".Demo04_Fragment_in_ViewPager2.Main_Demo04" />
+        <activity android:name=".Demo03_RecyclerView.DetailActivity" />
+        <activity android:name=".Demo03_RecyclerView.Main_Demo03" />
+        <activity android:name=".Demo02_Change_TextSize_with_Motion_Animation_androidx.Main_Demo02" />
+        <activity android:name=".Demo01_onSwipe_onClick_on_same_View.Main_Demo01" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

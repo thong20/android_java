@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    android:padding="10dp"
+    app:layoutDescription="@xml/activity_main_demo07_scene"
+    tools:context=".Demo07_Positioning_Icons.Main_Demo07"
+    app:motionDebug="SHOW_PATH">
+
+    <ImageView
+        android:id="@+id/demo07_icon_01"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_facebook"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_02"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_viber"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_01"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_03"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_youtube"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_02"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_04"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_linkedin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_01" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_05"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_twitter"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_04"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_02" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_06"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_instagram"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_05"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_03" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_07"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_pinterest"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_04" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_08"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_github"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_07"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_05" />
+
+    <ImageView
+        android:id="@+id/demo07_icon_09"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_soundcloud"
+        app:layout_constraintLeft_toRightOf="@id/demo07_icon_08"
+        app:layout_constraintTop_toBottomOf="@id/demo07_icon_06" />
+
+    <ImageView
+        android:id="@+id/demo07_up"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:padding="10dp"
+        android:scaleType="center"
+        android:src="@drawable/demo07_arrow_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
