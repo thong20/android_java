@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/myBackgroundColor"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/demo03_edt_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Search"
+        android:textColorHint="@color/grey700"
+        android:background="@drawable/border_background_radius"
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:inputType="text"
+        android:imeOptions="actionSearch"
+        />
+
+
+
+    <EditText
+        android:id="@+id/demo03_edt_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="Username"
+        android:textColorHint="@color/grey600"
+        android:layout_marginTop="30dp"/>
+   <EditText
+        android:id="@+id/demo03_edt_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:hint="Address"
+        android:textColorHint="@color/grey600"
+       android:layout_marginTop="10dp"/>
+   <Button
+        android:id="@+id/demo03_btn_add_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:text="Add User"
+       android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/demo03_tv_delete_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete All"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_gravity="right"
+        android:layout_marginVertical="15dp"
+        android:layout_marginRight="10dp"/>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/demo03_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

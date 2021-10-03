@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/myBackgroundColor"
+    android:gravity="center_horizontal"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Room Database"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:layout_marginBottom="30dp"
+        />
+
+<!-- ===== DEMO 01 ========================================== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#01 - Insert data &amp; Get List Data"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@color/yellow"
+        android:layout_marginVertical="20dp"/>
+
+<!-- ===== DEMO 02 ========================================== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#02 - Check data &amp; Update Data"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@color/yellow"
+        android:layout_marginVertical="20dp"/>
+
+<!-- ===== DEMO 03 ========================================== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#03 - Delete data &amp; Search Data"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@color/yellow"
+        android:layout_marginVertical="20dp"/>
+
+<!-- ===== DEMO 04 ========================================== -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#04 - Migration Room Database"
+        android:textColor="@color/white"
+        android:textSize="18sp"/>
+    <Button
+        android:id="@+id/btn_04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Demo"
+        android:layout_marginTop="10dp"/>
+    <View
+        android:layout_width="200dp"
+        android:layout_height="1dp"
+        android:background="@color/yellow"
+        android:layout_marginVertical="20dp"/>
+
+</LinearLayout>
