@@ -1,0 +1,2 @@
+rootProject.name = "Custom Navigation Drawer"
+include ':app'
