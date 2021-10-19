@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Custom Navgation Drawer Right</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_favorite">Favorite</string>
+    <string name="nav_history">History</string>
+    <string name="nav_my_profile">My Profile</string>
+    <string name="nav_change_password">Change Password</string>
+    <string name="account">Account</string>
+</resources>
