@@ -13,10 +13,13 @@ import com.example.customnavigationdrawer.R;
 
 public class FragmentFavorite extends Fragment {
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        View v = inflater.inflate(R.layout.fragment_favorite, container, false);
+
+        // MAPPING ELEMENT HERE
+
+        return v;
     }
 }
