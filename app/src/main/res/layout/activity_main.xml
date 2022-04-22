@@ -37,7 +37,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Style 1"
+                android:text="Navigation Left"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 />
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lesson name"
+                android:text="Navigation Right"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 />

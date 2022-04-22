@@ -22,6 +22,7 @@ import com.example.customnavigationdrawer.Demo01.Fragment.FragmentFavorite;
 import com.example.customnavigationdrawer.Demo01.Fragment.FragmentHistory;
 import com.example.customnavigationdrawer.Demo01.Fragment.FragmentHome;
 import com.example.customnavigationdrawer.Demo01.MainDemo01;
+import com.example.customnavigationdrawer.Demo02_Right.MainDemo02;
 import com.example.customnavigationdrawer.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_01: startActivity(new Intent(MainActivity.this, MainDemo01.class)); break;
-//            case R.id.btn_02: startActivity(new Intent(MainActivity.this, MainDemo02.class)); break;
+            case R.id.btn_02: startActivity(new Intent(MainActivity.this, MainDemo02.class)); break;
 
         }
     }
