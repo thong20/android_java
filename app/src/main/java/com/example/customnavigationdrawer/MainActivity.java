@@ -9,139 +9,42 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.customnavigationdrawer.Fragment.FragmentFavorite;
-import com.example.customnavigationdrawer.Fragment.FragmentHistory;
-import com.example.customnavigationdrawer.Fragment.FragmentHome;
+import com.example.customnavigationdrawer.Demo01.Fragment.FragmentFavorite;
+import com.example.customnavigationdrawer.Demo01.Fragment.FragmentHistory;
+import com.example.customnavigationdrawer.Demo01.Fragment.FragmentHome;
+import com.example.customnavigationdrawer.Demo01.MainDemo01;
+import com.example.customnavigationdrawer.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private final int FRAGMENT_HOME = 0;
-    private final int FRAGMENT_FAVORITE = 1;
-    private final int FRAGMENT_HISTORY = 2;
-    private int currentFragment = FRAGMENT_HOME;
-
-    private DrawerLayout mDrawerLayout;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-
-
-        // THÊM ACTION BAR
-        // Chú ý: Toolbar này là của package androidx.*
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        mDrawerLayout = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this,
-                mDrawerLayout,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-            );
-        mDrawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-
-        // HANDLE onClick ITEM NavigationDrawer
-        NavigationView navigationView = findViewById(R.id.navigation_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        replaceFragment(new FragmentHome());
-        // Đánh dấu item Home trong Drawer
-        navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
-
+        binding.btn01.setOnClickListener(this);
+        binding.btn02.setOnClickListener(this);
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_01: startActivity(new Intent(MainActivity.this, MainDemo01.class)); break;
+//            case R.id.btn_02: startActivity(new Intent(MainActivity.this, MainDemo02.class)); break;
 
-        int id = item.getItemId();
-        switch (id){
-            case R.id.nav_home:
-                if(currentFragment != FRAGMENT_HOME){
-                    replaceFragment(new FragmentHome());
-                    currentFragment = FRAGMENT_HOME;
-                }
-                break;
-
-            case R.id.nav_favorite:
-                if(currentFragment != FRAGMENT_FAVORITE){
-                    replaceFragment(new FragmentFavorite());
-                    currentFragment = FRAGMENT_FAVORITE;
-                }
-                break;
-
-            case R.id.nav_history:
-                if(currentFragment != FRAGMENT_HISTORY){
-                    replaceFragment(new FragmentHistory());
-                    currentFragment = FRAGMENT_HISTORY;
-                }
-                break;
-
-            case R.id.nav_my_profile:
-                Logd("profile profile");
-                break;
-
-            case R.id.nav_change_password:
-                Logd("password password");
-                break;
         }
-
-        // CLOSE DRAWER AFTER ONCLICK
-        mDrawerLayout.closeDrawer(GravityCompat.START);
-
-        return true;
-
-    }
-
-    // XỬ LÝ KHI NHẤN PHÍM CỨNG "BACK"
-    // Vì nếu không xử lý thì khi app đang open Drawer
-    // mà người dùng nhấn phím cứng "Back" thì app sẽ thoát thay
-    // vì phải đóng Drawer lại
-    @Override
-    public void onBackPressed() {
-
-        if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
-            // Đóng Drawer
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-        }else{
-            // Thoát app
-            super.onBackPressed();
-        }
-    }
-
-    private void replaceFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.content_frame, fragment);
-        transaction.commit();
-    }
-
-
-
-    // ====================================================================
-    public void Logd(String str){
-        Log.d("Log.d", "=== MainActivity.java ==============================\n" + str);
-    }
-    public void Logdln(String str, int n){
-        Log.d("Log.d", "=== MainActivity.java - line: " + n + " ==============================\n" + str);
-    }
-    public static void LogdStatic(String str){
-        Log.d("Log.d", "=== MainActivity.java ==============================\n" + str);
-    }
-    public static void LogdlnStatic(String str, int n){
-        Log.d("Log.d", "=== MainActivity.java - line: " + n + " ==============================\n" + str);
-    }
-    public void showToast(String str){
-        Toast.makeText(getApplicationContext(), str, Toast.LENGTH_LONG).show();
     }
 }

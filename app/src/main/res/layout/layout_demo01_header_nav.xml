@@ -8,11 +8,13 @@
     android:gravity="bottom">
     
     <ImageView
+        android:id="@+id/header_iv_avatar"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:src="@mipmap/ic_launcher"/>
 
     <TextView
+        android:id="@+id/header_tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="thong20"
@@ -22,6 +24,7 @@
         android:layout_marginTop="10dp"/>
 
     <TextView
+        android:id="@+id/header_tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="thong20@lagi.com"

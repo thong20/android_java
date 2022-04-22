@@ -1,4 +1,4 @@
-package com.example.customnavigationdrawer.Fragment;
+package com.example.customnavigationdrawer.Demo01.Fragment;
 
 import android.os.Bundle;
 
@@ -15,7 +15,7 @@ public class FragmentHome extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
+        View v = inflater.inflate(R.layout.fragment_demo01_home, container, false);
 
         // MAPPING ELEMENT HERE
 

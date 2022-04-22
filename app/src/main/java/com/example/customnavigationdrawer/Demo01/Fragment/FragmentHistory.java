@@ -1,4 +1,4 @@
-package com.example.customnavigationdrawer.Fragment;
+package com.example.customnavigationdrawer.Demo01.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment;
 
 import com.example.customnavigationdrawer.R;
 
-public class FragmentFavorite extends Fragment {
+public class FragmentHistory extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_favorite, container, false);
+        View v = inflater.inflate(R.layout.fragment_demo01_history, container, false);
 
         // MAPPING ELEMENT HERE
 

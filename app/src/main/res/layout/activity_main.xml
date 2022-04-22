@@ -1,53 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/drawer_layout"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="10dp"
+    android:background="#121212">
 
-    tools:openDrawer="start">
-    <!-- openDrawer required -->
-    <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Navigation Drawer"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:gravity="center_horizontal"
+        />
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <com.google.android.material.appbar.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            android:orientation="horizontal"
+            android:layout_toLeftOf="@id/btn_01">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#1 - "
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/red500"
-                app:popupTheme="@style/Theme.AppCompat.Light"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Style 1"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 />
-        </com.google.android.material.appbar.AppBarLayout>
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo 01"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
 
-        <FrameLayout
-            android:id="@+id/content_frame"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_toLeftOf="@id/btn_02">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#2 - "
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lesson name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btn_02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Demo 02"
+            android:layout_alignParentRight="true"
+            />
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-
-        app:headerLayout="@layout/layout_header_nav"
-        app:menu="@menu/menu_nav"
-        android:layout_gravity="start"
-        />
-        <!--
-            layout_gravity="start" sẽ thu gọn lại Drawer
-            dẫn đến, chiều rộng không chiếm toàn bộ parent
-         -->
-
-</androidx.drawerlayout.widget.DrawerLayout>
+    </RelativeLayout>
+</LinearLayout>
