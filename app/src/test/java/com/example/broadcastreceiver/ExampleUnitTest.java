@@ -1,4 +1,4 @@
-package com.example.projectandroid;
+package com.example.broadcastreceiver;
 
 import org.junit.Test;
 
